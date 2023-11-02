@@ -10,22 +10,26 @@ namespace AD
         {
             return Regex.Replace(s, @"\s+", " ").Trim();
         }
+
         public static string TrimmedStringWithoutSpaces(string s)
         {
             return Regex.Replace(s, @"\s+", "").Trim();
         }
+
         public static string ListToString<T>(IEnumerable<T> lst)
         {
             if (lst.Count() == 0)
                 return "NIL";
             return "[" + string.Join(",", lst) + "]";
         }
+
         public static string ListToOrderedString<T>(IEnumerable<T> lst)
         {
             if (lst.Count() == 0)
                 return "NIL";
             return "[" + string.Join(",", lst.OrderBy(x => x)) + "]";
         }
+
         public static List<int> RandomList(int lo, int hi, int count, bool unique = false)
         {
             HashSet<int> hash = new HashSet<int>();
@@ -42,8 +46,20 @@ namespace AD
             }
             return list;
         }
-        public List<int> UniqueRandomList(int lo, int hi, int count)
+
+        public static List<int> RandomListUnique(int lo, int hi, int count)
         {
             return RandomList(lo, hi, count, true);
-        }    }
+        }
+
+        public static int[] RandomArray(int lo, int hi, int count, bool unique = false)
+        {
+            return RandomList(lo, hi, count, unique).ToArray();
+        }
+
+        public static int[] RandomArrayUnique(int lo, int hi, int count)
+        {
+            return RandomList(lo, hi, count, true).ToArray();
+        }
+    }
 }
