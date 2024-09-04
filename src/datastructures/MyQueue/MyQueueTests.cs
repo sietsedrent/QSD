@@ -24,12 +24,12 @@ namespace AD
         public void MyQueue_2_Enqueue_1_IsEmptyReturnsFalse()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
             bool expected = false;
 
             // Act
-            stack.Enqueue("a");
-            bool actual = stack.IsEmpty();
+            queue.Enqueue("a");
+            bool actual = queue.IsEmpty();
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -39,12 +39,12 @@ namespace AD
         public void MyQueue_2_Enqueue_2_GetFrontIsOkAfter1Enqueue()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
             string expected = "a";
 
             // Act
-            stack.Enqueue("a");
-            string actual = stack.GetFront();
+            queue.Enqueue("a");
+            string actual = queue.GetFront();
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -54,14 +54,14 @@ namespace AD
         public void MyQueue_2_Enqueue_3_GetFrontIsOkAfter3Enqueue()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
             string expected = "a";
 
             // Act
-            stack.Enqueue("a");
-            stack.Enqueue("b");
-            stack.Enqueue("c");
-            string actual = stack.GetFront();
+            queue.Enqueue("a");
+            queue.Enqueue("b");
+            queue.Enqueue("c");
+            string actual = queue.GetFront();
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -71,12 +71,12 @@ namespace AD
         public void MyQueue_2_Enqueue_4_DequeueIsOkAfter1Enqueue()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
             string expected = "a";
 
             // Act
-            stack.Enqueue("a");
-            string actual = stack.Dequeue();
+            queue.Enqueue("a");
+            string actual = queue.Dequeue();
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -86,14 +86,14 @@ namespace AD
         public void MyQueue_2_Enqueue_5_DequeueIsOkAfter3Enqueue()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
             string expected = "a";
 
             // Act
-            stack.Enqueue("a");
-            stack.Enqueue("b");
-            stack.Enqueue("c");
-            string actual = stack.Dequeue();
+            queue.Enqueue("a");
+            queue.Enqueue("b");
+            queue.Enqueue("c");
+            string actual = queue.Dequeue();
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -103,15 +103,15 @@ namespace AD
         public void MyQueue_2_Enqueue_6_TwoTimesDequeueIsOkAfter3Enqueue()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
             string expected = "b";
 
             // Act
-            stack.Enqueue("a");
-            stack.Enqueue("b");
-            stack.Enqueue("c");
-            stack.Dequeue();
-            string actual = stack.Dequeue();
+            queue.Enqueue("a");
+            queue.Enqueue("b");
+            queue.Enqueue("c");
+            queue.Dequeue();
+            string actual = queue.Dequeue();
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -121,23 +121,23 @@ namespace AD
         public void MyQueue_3_GetFront_1_ThrowsExceptionOnEmptyStack()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
 
             // Act & Assert
-            Assert.Throws(typeof(MyQueueEmptyException), () => stack.GetFront());
+            Assert.Throws(typeof(MyQueueEmptyException), () => queue.GetFront());
         }
 
         [Test]
         public void MyQueue_3_GetFront_2_IsEmptyReturnsFalseAfterGetFrontOnOneElement()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
             bool expected = false;
 
             // Act
-            stack.Enqueue("a");
-            stack.GetFront();
-            bool actual = stack.IsEmpty();
+            queue.Enqueue("a");
+            queue.GetFront();
+            bool actual = queue.IsEmpty();
 
             // Assert
             Assert.AreEqual(expected, actual);
@@ -147,23 +147,23 @@ namespace AD
         public void MyQueue_4_Dequeue_1_ThrowsExceptionOnEmptyList()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
 
             // Act & Assert
-            Assert.Throws(typeof(MyQueueEmptyException), () => stack.Dequeue());
+            Assert.Throws(typeof(MyQueueEmptyException), () => queue.Dequeue());
         }
 
         [Test]
         public void MyQueue_4_Dequeue_2_IsEmptyReturnsTrueAfterGetFrontOnOneElement()
         {
             // Arrange
-            IMyQueue<string> stack = DSBuilder.CreateMyQueueStringEmpty();
+            IMyQueue<string> queue = DSBuilder.CreateMyQueueStringEmpty();
             bool expected = true;
 
             // Act
-            stack.Enqueue("a");
-            stack.Dequeue();
-            bool actual = stack.IsEmpty();
+            queue.Enqueue("a");
+            queue.Dequeue();
+            bool actual = queue.IsEmpty();
 
             // Assert
             Assert.AreEqual(expected, actual);
