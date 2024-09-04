@@ -19,6 +19,7 @@
     <Compile Include="..\..\..\datastructures\MyQueue\IMyQueue.cs" Link="MyQueue\IMyQueue.cs" />
     <Compile Include="..\..\..\datastructures\MyQueue\MyQueue.cs" Link="MyQueue\MyQueue.cs" />
     <Compile Include="..\..\..\datastructures\MyQueue\MyQueueBuilder.cs" Link="MyQueue\MyQueueBuilder.cs" />
+    <Compile Include="..\..\..\datastructures\MyQueue\MyQueueNode.cs" Link="MyQueue\MyQueueNode.cs" />
     <Compile Include="..\..\..\datastructures\MyStack\IMyStack.cs" Link="MyStack\IMyStack.cs" />
     <Compile Include="..\..\..\datastructures\MyStack\MyStack.cs" Link="MyStack\MyStack.cs" />
     <Compile Include="..\..\..\datastructures\MyStack\MyStackBuilder.cs" Link="MyStack\MyStackBuilder.cs" />

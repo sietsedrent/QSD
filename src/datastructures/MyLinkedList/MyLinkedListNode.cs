@@ -4,6 +4,5 @@
     {
         public T data;
         public MyLinkedListNode<T> next;
-
     }
 }

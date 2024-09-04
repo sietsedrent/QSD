@@ -1,9 +1,11 @@
-using System.Collections.Generic;
-
 namespace AD
 {
     public partial class MyQueue<T> : IMyQueue<T>
     {
+        private MyQueueNode<T> first;
+        private MyQueueNode<T> last;
+        private int size = 0;
+        
         public bool IsEmpty()
         {
             throw new System.NotImplementedException();
