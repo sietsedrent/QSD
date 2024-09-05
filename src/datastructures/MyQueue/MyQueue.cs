@@ -2,8 +2,8 @@ namespace AD
 {
     public partial class MyQueue<T> : IMyQueue<T>
     {
-        private MyQueueNode<T> first;
-        private MyQueueNode<T> last;
+        private MyQueueNode<T> front;
+        private MyQueueNode<T> back;
         private int size = 0;
         
         public bool IsEmpty()
