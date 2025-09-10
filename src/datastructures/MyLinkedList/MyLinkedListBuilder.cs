@@ -8,11 +8,11 @@
     {
         public static IMyLinkedList<string> CreateMyLinkedListStringEmpty()
         {
-            return new MyLinkedList<string>();
+            return new MyLinkedList<string>();  
         }
         public static IMyLinkedList<int> CreateMyLinkedListIntEmpty()
         {
-            return new MyLinkedList<int>();
+            return new MyLinkedList<int>();  
         }
     }
 }

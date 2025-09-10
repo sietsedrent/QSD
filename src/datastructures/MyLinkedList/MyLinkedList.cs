@@ -5,52 +5,102 @@
         public MyLinkedListNode<T> first;
         private int size;
 
-        public MyLinkedList()
+        public MyLinkedList()  // Fixed: constructor should have no parameters
         {
-            // Write implementation here
-            throw new System.NotImplementedException();
+            first = null;
+            size = 0;
         }
 
         public void AddFirst(T data)
         {
-            // Write implementation here
-            throw new System.NotImplementedException();
+            MyLinkedListNode<T> newNode = new MyLinkedListNode<T>(data);
+            newNode.next = first;
+            first = newNode;
+            size++;
+            // Removed the NotImplementedException
         }
 
         public T GetFirst()
         {
-            // Write implementation here
-            throw new System.NotImplementedException();
+            if (first == null)
+            {
+                throw new MyLinkedListEmptyException();
+            }
+            return first.data;
         }
 
         public void RemoveFirst()
         {
-            // Write implementation here
-            throw new System.NotImplementedException();
+            if (first == null)
+            {
+                throw new MyLinkedListEmptyException();
+            }
+            first = first.next;
+            size--;
         }
 
         public int Size()
         {
-            // Write implementation here
-            throw new System.NotImplementedException();
+            return size;
         }
 
         public void Clear()
         {
-            // Write implementation here
-            throw new System.NotImplementedException();
+            first = null;
+            size = 0;
         }
 
         public void Insert(int index, T data)
         {
-            // Write implementation here
-            throw new System.NotImplementedException();
+            // Check bounds: index must be between 0 and size (inclusive)
+            if (index < 0 || index > size)
+            {
+                throw new MyLinkedListIndexOutOfRangeException();
+            }
+
+            // Special case: insert at beginning
+            if (index == 0)
+            {
+                AddFirst(data);
+                return;
+            }
+
+            // Find the position to insert
+            MyLinkedListNode<T> current = first;
+            for (int i = 0; i < index - 1; i++)
+            {
+                current = current.next;
+            }
+
+            // Create new node and insert
+            MyLinkedListNode<T> newNode = new MyLinkedListNode<T>(data);
+            newNode.next = current.next;
+            current.next = newNode;
+            size++;
         }
 
         public override string ToString()
         {
-            // Write implementation here
-            throw new System.NotImplementedException();
+            if (first == null)
+            {
+                return "NIL";
+            }
+
+            string result = "[";
+            MyLinkedListNode<T> current = first;
+            
+            while (current != null)
+            {
+                result += current.data.ToString();
+                if (current.next != null)
+                {
+                    result += ",";
+                }
+                current = current.next;
+            }
+            
+            result += "]";
+            return result;
         }
     }
 }

@@ -8,28 +8,64 @@ namespace AD
         
         public bool IsEmpty()
         {
-            throw new System.NotImplementedException();
+            return size == 0;
         }
 
         public void Enqueue(T data)
         {
-            throw new System.NotImplementedException();
+            MyQueueNode<T> newNode = new MyQueueNode<T>(data, null);
+            
+            if (IsEmpty())
+            {
+                // First element: both front and back point to the new node
+                front = newNode;
+                back = newNode;
+            }
+            else
+            {
+                // Add to the back: link current back to new node, then update back pointer
+                back.next = newNode;
+                back = newNode;
+            }
+            
+            size++;
         }
 
         public T GetFront()
         {
-            throw new System.NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new MyQueueEmptyException();
+            }
+            
+            return front.data;
         }
 
         public T Dequeue()
         {
-            throw new System.NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new MyQueueEmptyException();
+            }
+            
+            T data = front.data;
+            front = front.next;
+            size--;
+            
+            // If queue becomes empty after dequeue, reset back pointer
+            if (size == 0)
+            {
+                back = null;
+            }
+            
+            return data;
         }
 
         public void Clear()
         {
-            throw new System.NotImplementedException();
+            front = null;
+            back = null;
+            size = 0;
         }
-
     }
 }
