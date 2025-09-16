@@ -1,18 +1,51 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AD
 {
     public class Opgave6
     {
+
         public static string ForwardString(List<int> list, int from_index)
         {
-            throw new System.NotImplementedException();
+            if (from_index >= list.Count)
+            {
+                return string.Empty;
+            }
+
+            string huidige = list[from_index].ToString();
+            string rest = ForwardString(list, from_index + 1);
+
+            if (rest == "")
+            {
+                return huidige;
+            }
+            else
+            {
+                return huidige + " " + rest;
+            }
         }
-        
+
         public static string BackwardString(List<int> list, int from_index)
         {
-            throw new System.NotImplementedException();
+            if (from_index >= list.Count)
+            {
+                return string.Empty;
+            }
+
+            string rest = BackwardString(list, from_index + 1);
+
+            if (rest == "")
+            {
+                return list[from_index].ToString();
+            }
+            else
+            {
+                return rest + " " + list[from_index];
+            }
         }
+
 
         public static void Run()
         {

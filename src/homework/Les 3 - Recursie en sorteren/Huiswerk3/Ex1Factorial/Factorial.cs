@@ -1,15 +1,24 @@
-﻿namespace AD
+﻿using System;
+
+namespace AD
 {
     public class Opgave1
     {
         public static long FacRecursive(int n)
         {
-            throw new System.NotImplementedException();
+            if (n <= 1)      
+                return 1;
+            return n * FacRecursive(n - 1); 
         }
 
         public static long FacIterative(int n)
         {
-            throw new System.NotImplementedException();
+            long waarde = 1;
+            for (int i = 1; i <= n; i++)
+            {
+                waarde = waarde * i;
+            }
+            return waarde;
         }
 
         public static void Run()

@@ -3,10 +3,14 @@
 namespace AD
 {
     public class Opgave3
-    {
+    {    
         public static int OmEnOm(int n)
         {
-            throw new System.NotImplementedException();
+            if(n < 0)
+            {
+                throw new OmEnOmNegativeValueException();
+            }
+            return (n < 2)? n : n + OmEnOm(n - 2);    
         }
         public static void Run()
         {
@@ -21,5 +25,8 @@ namespace AD
 
     public class OmEnOmNegativeValueException : Exception
     {
+        public OmEnOmNegativeValueException()
+            : base("Er mogen geen negatieve waardes in worden gevoerd"){ }
+        
     }
 }

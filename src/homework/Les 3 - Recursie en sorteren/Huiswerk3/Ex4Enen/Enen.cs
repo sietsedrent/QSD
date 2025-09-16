@@ -4,7 +4,10 @@
     {
         public static int Enen(int n)
         {
-            throw new System.NotImplementedException();
+            int value = 0;
+            if (n % 2 != 0)
+                value++;
+            return (n < 1) ? value  : value + Enen(n / 2);
         }
 
         public static void Run()
